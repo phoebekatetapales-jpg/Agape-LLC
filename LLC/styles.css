@@ -1,0 +1,988 @@
+/* ==========================================================================
+   Freedom Health Ventures — Stylesheet
+   ==========================================================================
+
+   TABLE OF CONTENTS
+   01. Design tokens (colors, gradients, shadows, radii, fonts)
+   02. Base / reset
+   03. Layout (wrap, sections, sheets, split)
+   04. Typography
+   05. Buttons
+   06. Announcement bar
+   07. Navigation
+   08. Hero
+   09. Program cards
+   10. Bento tiles
+   11. Steps
+   12. Audience link rows
+   13. Product chips
+   14. Booking + forms
+   15. FAQ
+   16. Footer + newsletter
+   17. Views (page switching)
+   18. Utilities
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. Design tokens
+   ========================================================================== */
+:root {
+  /* Greens */
+  --forest-900: #0b3a2e;
+  --pine-700: #145a4a;
+  --jade-600: #06806a;
+  --teal-700: #006b58;
+  --mint-400: #5ee8a8;
+  --seafoam-300: #7dd4bb;
+
+  /* Neutrals */
+  --linen-100: #efeae2;
+  --oat-200: #e6dfd4;
+  --sand-250: #ddd5c8;
+  --mist-50: #f4fbf7;
+  --paper-0: #fff;
+  --moss-800: #26332f;
+  --charcoal-900: #222;
+  --gray-600: #5f5f5f;
+
+  /* Hairlines */
+  --hairline-mint: rgba(94, 232, 168, .15);
+  --hairline-ink: rgba(34, 34, 34, .1);
+
+  /* Gradients */
+  --gradient-stories: radial-gradient(circle at 50% 90%, rgba(78, 226, 157, .5), #06806a 40%, #145a4a);
+  --gradient-lagoon: linear-gradient(#1aa9bb, #efeae2);
+  --gradient-aurora: linear-gradient(#ccff66, #2edaf1);
+
+  /* Shadows */
+  --shadow-halo: rgba(38, 54, 51, .12) 0 0 4px 4px;
+  --shadow-nav: rgba(0, 0, 0, .2) 0 0 4px 0;
+
+  /* Radii */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-xl: 24px;
+
+  /* Fonts */
+  --sans: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --serif: Newsreader, Georgia, serif;
+}
+
+
+/* ==========================================================================
+   02. Base / reset
+   ========================================================================== */
+* { box-sizing: border-box; }
+
+html,
+body { margin: 0; }
+
+body {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  background: var(--forest-900);
+  color: var(--paper-0);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+img { max-width: 100%; }
+
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+
+/* ==========================================================================
+   03. Layout
+   ========================================================================== */
+.wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+section { padding: 96px 0; }
+
+.center {
+  display: grid;
+  gap: 24px;
+  justify-items: center;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Light "paper" panels that sit on the dark background */
+.sheet {
+  background: var(--linen-100);
+  color: var(--forest-900);
+  border-radius: var(--r-lg);
+  margin: 0 12px;
+}
+.sheet--flush { margin-left: 0; margin-right: 0; }
+
+.sheet-xl {
+  background: var(--linen-100);
+  color: var(--forest-900);
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  margin: 0 12px;
+}
+
+.on-light a.inline {
+  color: var(--teal-700);
+  font-weight: 600;
+}
+
+/* Two-column heading/intro layout */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 48px;
+}
+.split--top { align-items: start; }
+
+/* Vertical stacks */
+.stack    { display: grid; gap: 24px; }
+.stack-sm { display: grid; gap: 16px; }
+
+@media (max-width: 860px) {
+  .split { grid-template-columns: 1fr; gap: 20px; }
+}
+
+@media (max-width: 720px) {
+  .wrap { padding: 0 20px; }
+}
+
+
+/* ==========================================================================
+   04. Typography
+   ========================================================================== */
+.display {
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(44px, 6.4vw, 76px);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.heading {
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1;
+}
+
+.section-heading {
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(34px, 4.6vw, 56px);
+  line-height: 1;
+}
+
+.accent {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: clamp(19px, 2vw, 24px);
+  line-height: 1.5;
+  letter-spacing: -.48px;
+}
+
+.lead {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: -.36px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.dot {
+  display: inline-block;
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--mint-400);
+}
+.on-light .dot { background: var(--jade-600); }
+
+/* Muted text color (seafoam) */
+.text-muted { color: var(--seafoam-300); }
+
+/* Small fine-print note */
+.note {
+  margin: 0;
+  font-size: 13px;
+  color: var(--seafoam-300);
+}
+
+
+/* ==========================================================================
+   05. Buttons
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  font: 500 18px/1.5 var(--sans);
+  letter-spacing: -.36px;
+  border: 1px solid var(--mint-400);
+  border-radius: var(--r-sm);
+  background: var(--mint-400);
+  color: var(--forest-900);
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(1.06); }
+
+.btn--outline {
+  background: transparent;
+  color: var(--mint-400);
+}
+
+.btn--jade {
+  background: var(--jade-600);
+  border-color: var(--jade-600);
+  color: var(--paper-0);
+}
+
+.btn--fit { width: max-content; }
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.on-light .btn-row { gap: 12px; }
+
+
+/* ==========================================================================
+   06. Announcement bar
+   ========================================================================== */
+.announce {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 8px 56px;
+  background: var(--linen-100);
+  color: var(--forest-900);
+  text-align: center;
+  box-shadow: var(--shadow-halo);
+}
+
+.announce a { white-space: nowrap; }
+
+.announce button {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: 0;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--forest-900);
+  cursor: pointer;
+}
+
+
+/* ==========================================================================
+   07. Navigation
+   ========================================================================== */
+.nav-shell {
+  position: sticky;
+  top: 15px;
+  z-index: 5;
+  margin-top: 15px;
+  padding: 0 12px;
+  transition: transform .3s;
+}
+.nav-shell.hide { transform: translateY(-120px); }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  max-width: 1280px;
+  height: 64px;
+  margin: 0 auto;
+  padding: 0 16px 0 24px;
+  background: var(--paper-0);
+  border-radius: var(--r-sm);
+  box-shadow: var(--shadow-nav);
+}
+
+.brand {
+  margin-right: auto;
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -.4px;
+  color: var(--teal-700);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav a.link {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--moss-800);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav a.link[aria-current="page"] {
+  color: var(--teal-700);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.nav .btn {
+  padding: 8px 20px;
+  font-size: 16px;
+  background: var(--teal-700);
+  border-color: var(--teal-700);
+  color: var(--paper-0);
+}
+
+.menu-btn {
+  display: none;
+  padding: 6px 12px;
+  font: 600 15px var(--sans);
+  background: none;
+  border: 1px solid var(--moss-800);
+  border-radius: var(--r-sm);
+  color: var(--moss-800);
+  cursor: pointer;
+}
+
+@media (max-width: 960px) {
+  .nav a.link,
+  .nav .btn { display: none; }
+  .menu-btn { display: block; }
+
+  .nav.open {
+    height: auto;
+    flex-wrap: wrap;
+    padding-bottom: 16px;
+  }
+  .nav.open a.link,
+  .nav.open .btn { display: block; width: 100%; }
+  .nav.open .brand { padding: 20px 0; }
+}
+
+
+/* ==========================================================================
+   08. Hero
+   ========================================================================== */
+.hero {
+  margin: -79px 12px 0;
+  padding: 0;
+}
+
+.hero-frame {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(92vh, 860px);
+  padding: 160px 0 72px;
+  border-radius: 0 0 var(--r-lg) var(--r-lg);
+  overflow: hidden;
+}
+.hero-frame .art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.hero-frame .wrap {
+  position: relative;
+  width: 100%;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 24px;
+  max-width: 820px;
+}
+
+/* Hero variants (one per page) */
+.hero--home  .hero-frame { background: radial-gradient(120% 90% at 85% 15%, #1f6a57 0%, var(--forest-900) 55%); }
+.hero--wound .hero-frame { background: radial-gradient(110% 90% at 80% 20%, #0f7362 0%, var(--forest-900) 60%); }
+.hero--ai    .hero-frame { background: radial-gradient(110% 90% at 85% 20%, #1a6f8a 0%, var(--forest-900) 60%); }
+.hero--life  .hero-frame { background: radial-gradient(110% 90% at 85% 20%, #3a7a3f 0%, var(--forest-900) 60%); }
+
+
+/* ==========================================================================
+   09. Program cards
+   ========================================================================== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 56px;
+}
+
+.program {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 440px;
+  padding: 24px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  color: var(--paper-0);
+  text-decoration: none;
+  transition: transform .25s;
+}
+.program:hover { transform: translateY(-4px); }
+
+.program::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0% 100%, rgba(37, 31, 25, .7), rgba(37, 31, 25, 0) 65%);
+}
+.program > * { position: relative; z-index: 1; }
+.program .art { position: absolute; inset: 0; z-index: 0; }
+
+.program h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 28.8px;
+}
+.program p {
+  max-width: 30ch;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.program .more {
+  display: inline-flex;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--mint-400);
+}
+
+/* Card backgrounds */
+.pg-wound { background: var(--gradient-stories); }
+.pg-ai    { background: var(--gradient-lagoon); }
+.pg-life  { background: linear-gradient(160deg, #4a8f4f, #145a4a 70%); }
+
+/* Ring icon */
+.ring {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, .25);
+}
+.ring i {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+}
+.ring--forest i { background: var(--forest-900); }
+.ring--mint i   { background: var(--mint-400); }
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: max-content;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .04em;
+  background: var(--pine-700);
+  color: var(--mint-400);
+  border-radius: var(--r-sm);
+}
+
+@media (max-width: 900px) {
+  .cards { grid-template-columns: 1fr; }
+}
+
+
+/* ==========================================================================
+   10. Bento tiles
+   ========================================================================== */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.bento--2 { grid-template-columns: repeat(2, 1fr); }
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 240px;
+  padding: 32px;
+  border-radius: var(--r-md);
+  color: var(--paper-0);
+}
+.tile--tall { min-height: 320px; }
+
+.tile h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+.tile p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: .92;
+}
+.tile .glyph { width: 56px; height: 56px; }
+
+/* Tile backgrounds */
+.tile--forest  { background: var(--forest-900); }
+.tile--stories { background: var(--gradient-stories); }
+.tile--lagoon  { background: var(--gradient-lagoon); color: var(--forest-900); }
+.tile--pine    { background: var(--pine-700); }
+
+@media (max-width: 900px) {
+  .bento,
+  .bento--2 { grid-template-columns: 1fr; }
+}
+
+
+/* ==========================================================================
+   11. Steps
+   ========================================================================== */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.step {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 32px 24px;
+}
+.step + .step { border-left: 1px solid var(--hairline-ink); }
+
+.step .num {
+  font-size: 62px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--teal-700);
+}
+.step h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+.step p {
+  margin: 0;
+  color: var(--gray-600);
+}
+
+@media (max-width: 900px) {
+  .steps { grid-template-columns: 1fr 1fr; }
+  .step + .step {
+    border-left: 0;
+    border-top: 1px solid var(--hairline-ink);
+  }
+}
+
+@media (max-width: 560px) {
+  .steps { grid-template-columns: 1fr; }
+}
+
+
+/* ==========================================================================
+   12. Audience link rows
+   ========================================================================== */
+.audience {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.rows li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--hairline-mint);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+.rows li small {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--seafoam-300);
+  text-align: right;
+}
+.rows li:hover,
+.rows li.active {
+  color: var(--mint-400);
+  border-bottom-color: var(--mint-400);
+}
+.rows li.active small { color: var(--mint-400); }
+
+@media (max-width: 860px) {
+  .audience { grid-template-columns: 1fr; gap: 32px; }
+}
+
+
+/* ==========================================================================
+   13. Product chips
+   ========================================================================== */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chip {
+  padding: 10px 16px;
+  font-size: 16px;
+  color: var(--paper-0);
+  background: rgba(255, 255, 255, .03);
+  border: 1px solid var(--hairline-mint);
+  border-radius: var(--r-sm);
+}
+
+
+/* ==========================================================================
+   14. Booking + forms
+   ========================================================================== */
+.book {
+  position: relative;
+  margin: 0 12px;
+  overflow: hidden;
+  background: var(--oat-200);
+  color: var(--forest-900);
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+}
+.book .aurora {
+  position: absolute;
+  top: -260px;
+  left: 50%;
+  width: 720px;
+  height: 720px;
+  border-radius: 9999px;
+  background: var(--gradient-aurora);
+  filter: blur(120px);
+  opacity: .45;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.book .wrap { position: relative; }
+
+.book-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+/* Form */
+.form {
+  display: grid;
+  gap: 16px;
+  padding: 32px;
+  background: var(--paper-0);
+  border-radius: var(--r-md);
+}
+.form label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--moss-800);
+}
+.form input,
+.form select,
+.form textarea {
+  padding: 8px 0;
+  font: 400 16px var(--sans);
+  color: var(--forest-900);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #8a948f;
+  border-radius: 0;
+}
+.form textarea {
+  min-height: 72px;
+  resize: vertical;
+}
+.form .row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form .consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--gray-600);
+}
+.form .consent input { margin-top: 3px; }
+
+.form-note {
+  margin: 0;
+  font-size: 13px;
+  color: var(--gray-600);
+}
+
+/* Success message */
+.ok {
+  display: none;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: var(--forest-900);
+  background: var(--mist-50);
+  border: 1px solid var(--jade-600);
+  border-radius: var(--r-sm);
+}
+.ok.show { display: block; }
+
+/* Calendar placeholder */
+.cal {
+  display: grid;
+  place-items: center;
+  min-height: 360px;
+  padding: 32px;
+  text-align: center;
+  color: var(--teal-700);
+  background: rgba(255, 255, 255, .45);
+  border: 1px dashed var(--jade-600);
+  border-radius: var(--r-md);
+}
+.cal strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--forest-900);
+}
+
+/* What happens next */
+.what-next {
+  display: grid;
+  gap: 16px;
+  margin-top: 32px;
+}
+.what-next div {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.what-next b { font-weight: 500; }
+
+@media (max-width: 900px) {
+  .book-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .form .row2 { grid-template-columns: 1fr; }
+}
+
+
+/* ==========================================================================
+   15. FAQ
+   ========================================================================== */
+.faq details {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--hairline-ink);
+}
+.faq summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 22px;
+  font-weight: 300;
+  list-style: none;
+  cursor: pointer;
+}
+.faq summary::after {
+  content: "+";
+  font-weight: 400;
+  color: var(--teal-700);
+}
+.faq details[open] summary::after { content: "–"; }
+
+.faq p {
+  max-width: 70ch;
+  margin: 12px 0 0;
+  color: var(--gray-600);
+}
+
+
+/* ==========================================================================
+   16. Footer + newsletter
+   ========================================================================== */
+.foot-band {
+  padding: 0 12px;
+  background: var(--oat-200);
+}
+
+footer {
+  padding: 64px 0 32px;
+  background: var(--forest-900);
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+}
+
+.foot {
+  display: grid;
+  grid-template-columns: 1.2fr repeat(2, 1fr) 1.4fr;
+  gap: 32px;
+}
+.foot h4 {
+  margin: 0 0 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--seafoam-300);
+}
+.foot ul {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.foot a {
+  font-size: 14px;
+  letter-spacing: -.32px;
+  color: var(--paper-0);
+  text-decoration: none;
+}
+.foot a:hover { text-decoration: underline; }
+
+/* Footer brand + tagline */
+.foot .brand--footer {
+  font-size: 20px;
+  color: var(--paper-0);
+}
+.foot-tagline {
+  max-width: 28ch;
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: var(--seafoam-300);
+}
+
+/* Newsletter */
+.news {
+  padding: 24px;
+  background: var(--pine-700);
+  border-radius: var(--r-md);
+}
+.news p {
+  margin: 0 0 16px;
+  font-size: 18px;
+  letter-spacing: -.36px;
+}
+.news form {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+.news input {
+  flex: 1;
+  padding: 8px 0;
+  font: 16px var(--sans);
+  color: var(--paper-0);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
+}
+.news input::placeholder { color: var(--seafoam-300); }
+.news button {
+  font: 500 16px var(--sans);
+  color: var(--mint-400);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Legal bar */
+.legal {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 48px;
+  padding-top: 24px;
+  font-size: 12px;
+  color: var(--seafoam-300);
+  border-top: 1px solid var(--hairline-mint);
+}
+
+@media (max-width: 900px) {
+  .foot { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .foot { grid-template-columns: 1fr; }
+}
+
+
+/* ==========================================================================
+   17. Views (page switching via JS)
+   ========================================================================== */
+.view        { display: none; }
+.view.active { display: block; }
+
+
+/* ==========================================================================
+   18. Utilities
+   ========================================================================== */
+.mt-0  { margin-top: 0; }
+.mt-12 { margin-top: 12px; }
+.mt-24 { margin-top: 24px; }
+.mt-48 { margin-top: 48px; }
+.mt-96 { margin-top: 96px; }

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Freedom Health Ventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="announce" id="announce">Now booking intro calls for wound care supply and AI front-desk agents.&nbsp;<a href="#wound-care" data-go="book">Book a time</a><button aria-label="Dismiss announcement" onclick="this.parentElement.remove()">×</button></div>
+
+<div class="nav-shell" id="navShell">
+  <nav class="nav" id="nav" aria-label="Main">
+    <a class="brand" href="#home">Freedom Health Ventures</a>
+    <a class="link" href="#wound-care">Wound Care</a>
+    <a class="link" href="#ai-agents">AI Agents</a>
+    <a class="link" href="#lifewave">LifeWave</a>
+    <a class="btn" href="#home" data-go="book">Book a call</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="toggleMenu(this)">Menu</button>
+  </nav>
+</div>
+
+<!-- ================= HOME ================= -->
+<main class="view" id="view-home" data-title="Freedom Health Ventures">
+  <div class="hero hero--home">
+    <div class="hero-frame">
+      <svg class="art" viewBox="0 0 1400 860" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+        <path d="M640 860 C 820 760, 900 520, 1120 420" fill="none" stroke="#5ee8a8" stroke-width="1.5" opacity=".7"/>
+        <path d="M720 860 C 980 820, 1040 300, 1300 220" fill="none" stroke="#7dd4bb" stroke-width="1.5" opacity=".5"/>
+        <path d="M900 860 C 1100 760, 1200 600, 1400 560" fill="none" stroke="#5ee8a8" stroke-width="1.5" opacity=".35"/>
+        <circle cx="1120" cy="420" r="5" fill="#5ee8a8"/><circle cx="1300" cy="220" r="5" fill="#7dd4bb"/>
+        <rect x="1010" y="120" width="300" height="180" rx="12" fill="#efeae2" opacity=".08"/>
+        <rect x="1120" y="470" width="200" height="120" rx="8" fill="#5ee8a8" opacity=".08"/>
+      </svg>
+      <div class="wrap">
+        <div class="hero-copy">
+          <span class="eyebrow"><i class="dot"></i>Health supply &amp; practice growth</span>
+          <h1 class="display">Better care starts with the right <span class="accent">connection</span></h1>
+          <p class="subtitle">Wound care supplies for clinics and care communities, AI front-desk agents for medical offices, and LifeWave products, all from one team.</p>
+          <div class="btn-row"><a class="btn" href="#wound-care">Explore wound care</a><a class="btn btn--outline" href="#ai-agents">See AI agents</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="center">
+        <h2 class="heading">Three ways we help, <span class="accent">in one place</span></h2>
+        <p class="lead text-muted">Choose the path that fits you. Each one has its own team calendar, so you're talking to the right person from the first call.</p>
+      </div>
+      <div class="cards">
+        <a class="program pg-wound" href="#wound-care">
+          <span class="badge"><i class="dot"></i>PRIORITY</span>
+          <div><h3>Wound care &amp; medical equipment</h3><p>Dressings and durable medical equipment for clinics, podiatry, hospitals and senior living.</p><span class="more">Explore wound care →</span></div>
+        </a>
+        <a class="program pg-ai" href="#ai-agents">
+          <span class="ring ring--forest"><i></i></span>
+          <div><h3>AI agents for medical offices</h3><p>A text-based assistant that answers patients and books appointments around the clock.</p><span class="more">See how it works →</span></div>
+        </a>
+        <a class="program pg-life" href="#lifewave">
+          <span class="ring ring--mint"><i></i></span>
+          <div><h3>LifeWave products &amp; partners</h3><p>Shop products as a customer, or learn about becoming an independent distributor.</p><span class="more">Learn about LifeWave →</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sheet on-light">
+    <section>
+      <div class="wrap">
+        <div class="split">
+          <h2 class="section-heading">Fast answers, <span class="accent">real people</span> behind them</h2>
+          <p class="lead">Every inquiry gets a text reply within about a minute, day or night. From there you can ask questions, get product details and book a call with our team at a time that suits you.</p>
+        </div>
+        <div class="bento">
+          <div class="tile tile--forest"><svg class="glyph" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" fill="none" stroke="#5ee8a8" stroke-width="1.5"/><path d="M28 14v14l9 6" fill="none" stroke="#5ee8a8" stroke-width="1.5" stroke-linecap="round"/></svg><div><h3>Replies in about 60 seconds</h3><p>Opt in and you'll get a text right away, not a voicemail days later.</p></div></div>
+          <div class="tile tile--stories"><svg class="glyph" viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="10" width="44" height="38" rx="4" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M6 20h44M18 6v8M38 6v8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><circle cx="28" cy="34" r="4" fill="#5ee8a8"/></svg><div><h3>Book on your schedule</h3><p>Pick a time straight from our calendar. Reminders arrive by text.</p></div></div>
+          <div class="tile tile--lagoon"><svg class="glyph" viewBox="0 0 56 56" aria-hidden="true"><path d="M8 40 C 18 20, 30 44, 48 14" fill="none" stroke="#0b3a2e" stroke-width="1.5"/><circle cx="48" cy="14" r="4" fill="#0b3a2e"/></svg><div><h3>Nationwide reach</h3><p>We work with practices and facilities across the US, with a focus on New Mexico, Texas and California.</p></div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section>
+    <div class="wrap audience">
+      <div class="stack">
+        <span class="eyebrow"><i class="dot"></i>Who we work with</span>
+        <h2 class="section-heading">Built for the people who <span class="accent">deliver care</span></h2>
+        <p class="lead text-muted">Tell us who you are and we'll point you to the right team.</p>
+      </div>
+      <ul class="rows" aria-label="Audiences">
+        <li class="active" onclick="location.hash='wound-care'">Wound care clinics <small>Wound Care →</small></li>
+        <li onclick="location.hash='wound-care'">Podiatry practices <small>Wound Care →</small></li>
+        <li onclick="location.hash='wound-care'">Hospitals, senior living &amp; home health <small>Medical equipment →</small></li>
+        <li onclick="location.hash='ai-agents'">OB/GYN, med spas, pain &amp; wellness <small>AI Agents →</small></li>
+        <li onclick="location.hash='lifewave'">Customers &amp; future distributors <small>LifeWave →</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="book on-light" id="home-book">
+    <div class="aurora"></div>
+    <section>
+      <div class="wrap">
+        <div class="center">
+          <h2 class="section-heading">Let's find the right <span class="accent">fit</span></h2>
+          <p class="lead">Tell us a little about you and we'll text you within about a minute to set up a call.</p>
+        </div>
+        <div class="book-grid">
+          <form class="form" data-form>
+            <label>I'm interested in
+              <select name="interest" required>
+                <option value="">Choose one</option>
+                <option>Wound care supplies</option><option>Durable medical equipment</option><option>AI agent for my office</option><option>LifeWave products</option><option>Becoming a LifeWave distributor</option>
+              </select>
+            </label>
+            <div class="row2"><label>First name<input name="first" required autocomplete="given-name"></label><label>Last name<input name="last" required autocomplete="family-name"></label></div>
+            <div class="row2"><label>Mobile phone<input name="phone" type="tel" required autocomplete="tel"></label><label>Email<input name="email" type="email" required autocomplete="email"></label></div>
+            <label>Organization (optional)<input name="org" autocomplete="organization"></label>
+            <label class="consent"><input type="checkbox" required> I agree to receive text messages from Freedom Health Ventures about my inquiry. Msg &amp; data rates may apply. Reply STOP to opt out.</label>
+            <button class="btn btn--jade" type="submit">Get a text from us</button>
+            <div class="ok" role="status"></div>
+          </form>
+          <div>
+            <div class="cal"><div><strong>Appointment calendar</strong>The GoHighLevel booking calendar for each team embeds here.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- ================= WOUND CARE ================= -->
+<main class="view" id="view-wound-care" data-title="Wound Care · Freedom Health Ventures">
+  <div class="hero hero--wound">
+    <div class="hero-frame">
+      <svg class="art" viewBox="0 0 1400 860" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+        <path d="M700 860 C 860 700, 1000 640, 1180 360" fill="none" stroke="#5ee8a8" stroke-width="1.5" opacity=".7"/>
+        <path d="M860 860 C 1060 780, 1160 520, 1360 480" fill="none" stroke="#7dd4bb" stroke-width="1.5" opacity=".45"/>
+        <circle cx="1180" cy="360" r="5" fill="#5ee8a8"/>
+        <rect x="1040" y="150" width="260" height="160" rx="12" fill="#efeae2" opacity=".08"/>
+      </svg>
+      <div class="wrap">
+        <div class="hero-copy">
+          <span class="badge"><i class="dot"></i>WOUND CARE &amp; DME</span>
+          <h1 class="display">Wound care supplies, delivered with <span class="accent">care</span></h1>
+          <p class="subtitle">Advanced wound dressings and durable medical equipment for clinics, podiatry practices, hospitals and senior living communities.</p>
+          <div class="btn-row"><a class="btn" href="#wound-care" data-go="book">Book a supply call</a><a class="btn btn--outline" href="#wound-care" data-go="who">Who we serve</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="split split--top">
+        <div class="stack"><span class="eyebrow"><i class="dot"></i>What we supply</span><h2 class="section-heading">The products your team <span class="accent">reaches for</span></h2></div>
+        <div class="stack">
+          <p class="lead text-muted">We'll talk through your patient mix, current suppliers and ordering process, then put together options that fit.</p>
+          <div class="chips"><span class="chip">Wound care dressings</span><span class="chip">Foam &amp; hydrocolloid</span><span class="chip">Alginate &amp; collagen</span><span class="chip">Compression</span><span class="chip">Durable medical equipment</span><span class="chip">Mobility aids</span></div>
+          <p class="note">Product categories shown for illustration; we'll confirm the current catalog on your call.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sheet on-light" id="wound-who">
+    <section>
+      <div class="wrap">
+        <div class="split"><h2 class="section-heading">Who we <span class="accent">serve</span></h2><p class="lead">Anywhere in the US, with a focus on New Mexico, Texas and California.</p></div>
+        <div class="bento bento--2">
+          <div class="tile tile--forest"><h3>Wound care clinics</h3><p>Dressings and equipment across your full range of wound types, with a single point of contact for ordering.</p></div>
+          <div class="tile tile--stories"><h3>Podiatry practices</h3><p>Supplies for diabetic foot and lower-extremity wound care, sized to a practice's volume.</p></div>
+          <div class="tile tile--pine"><h3>Hospitals</h3><p>Durable medical equipment for discharge and ongoing patient needs.</p></div>
+          <div class="tile tile--lagoon"><h3>Senior living &amp; home health</h3><p>Durable medical equipment and supplies for residents and patients at home.</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="center"><h2 class="heading">How it <span class="accent">works</span></h2></div>
+      <div class="sheet sheet--flush on-light mt-48">
+        <div class="steps">
+          <div class="step"><span class="num">1</span><h3>Reach out</h3><p>Fill in the short form. We text you within about a minute.</p></div>
+          <div class="step"><span class="num">2</span><h3>Quick call</h3><p>Book a time to go over your needs, volumes and current suppliers.</p></div>
+          <div class="step"><span class="num">3</span><h3>Tailored options</h3><p>We put together the products and equipment that fit.</p></div>
+          <div class="step"><span class="num">4</span><h3>Ongoing support</h3><p>One contact for reorders, questions and new needs.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="book on-light" id="wound-book">
+    <div class="aurora"></div>
+    <section>
+      <div class="wrap">
+        <div class="center"><h2 class="section-heading">Book a wound care <span class="accent">call</span></h2><p class="lead">Tell us about your facility and we'll text you to set up a time.</p></div>
+        <div class="book-grid">
+          <form class="form" data-form data-segment="Wound Care">
+            <label>Facility type
+              <select name="facility" required><option value="">Choose one</option><option>Wound care clinic</option><option>Podiatry practice</option><option>Hospital</option><option>Senior living</option><option>Home health agency</option><option>Other</option></select>
+            </label>
+            <label>Looking for
+              <select name="need" required><option value="">Choose one</option><option>Wound care dressings</option><option>Durable medical equipment</option><option>Both</option></select>
+            </label>
+            <div class="row2"><label>First name<input name="first" required autocomplete="given-name"></label><label>Last name<input name="last" required autocomplete="family-name"></label></div>
+            <div class="row2"><label>Mobile phone<input name="phone" type="tel" required autocomplete="tel"></label><label>Email<input name="email" type="email" required autocomplete="email"></label></div>
+            <div class="row2"><label>Facility name<input name="org" required autocomplete="organization"></label><label>State<input name="state" required></label></div>
+            <label class="consent"><input type="checkbox" required> I agree to receive text messages from Freedom Health Ventures about my inquiry. Msg &amp; data rates may apply. Reply STOP to opt out.</label>
+            <button class="btn btn--jade" type="submit">Get a text from us</button>
+            <div class="ok" role="status"></div>
+          </form>
+          <div><div class="cal"><div><strong>Wound Care calendar</strong>GoHighLevel booking calendar for the wound care team embeds here.</div></div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- ================= AI AGENTS ================= -->
+<main class="view" id="view-ai-agents" data-title="AI Agents for Medical Offices · Freedom Health Ventures">
+  <div class="hero hero--ai">
+    <div class="hero-frame">
+      <svg class="art" viewBox="0 0 1400 860" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+        <rect x="980" y="170" width="300" height="72" rx="12" fill="#efeae2" opacity=".12"/>
+        <rect x="1060" y="262" width="260" height="72" rx="12" fill="#5ee8a8" opacity=".16"/>
+        <rect x="980" y="354" width="220" height="72" rx="12" fill="#efeae2" opacity=".12"/>
+        <path d="M760 860 C 900 720, 1000 560, 1060 470" fill="none" stroke="#5ee8a8" stroke-width="1.5" opacity=".6"/>
+        <circle cx="1060" cy="470" r="5" fill="#5ee8a8"/>
+      </svg>
+      <div class="wrap">
+        <div class="hero-copy">
+          <span class="badge"><i class="dot"></i>AI FRONT DESK</span>
+          <h1 class="display">A front desk that <span class="accent">never sleeps</span></h1>
+          <p class="subtitle">A text-based AI agent that answers patient questions, books appointments and sends reminders, set up around your office's own workflow.</p>
+          <div class="btn-row"><a class="btn" href="#ai-agents" data-go="book">Book a demo</a><a class="btn btn--outline" href="#ai-agents" data-go="features">What it does</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet on-light mt-96" id="ai-features">
+    <section>
+      <div class="wrap">
+        <div class="split"><h2 class="section-heading">What your agent <span class="accent">handles</span></h2><p class="lead">We start from a proven template and tailor the answers, tone and booking rules to your specialty.</p></div>
+        <div class="bento">
+          <div class="tile tile--forest"><h3>Answers patients by text</h3><p>Hours, location, services, insurance questions and new-patient steps, answered in seconds.</p></div>
+          <div class="tile tile--stories"><h3>Books appointments</h3><p>Offers open times from your calendar and confirms the booking by text.</p></div>
+          <div class="tile tile--lagoon"><h3>Sends reminders</h3><p>Appointment reminders and follow-ups that cut no-shows and phone tag.</p></div>
+          <div class="tile tile--pine"><h3>Hands off to your staff</h3><p>Anything clinical or sensitive goes straight to a person on your team.</p></div>
+          <div class="tile tile--forest"><h3>Works after hours</h3><p>Evenings, weekends and holidays, without adding staff.</p></div>
+          <div class="tile tile--stories"><h3>Yours to keep</h3><p>The prompts, workflows and automations built for you belong to your practice.</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section>
+    <div class="wrap audience">
+      <div class="stack"><span class="eyebrow"><i class="dot"></i>Built for</span><h2 class="section-heading">Made for busy <span class="accent">practices</span></h2><p class="lead text-muted">Starting with these specialties; more templates to follow.</p></div>
+      <ul class="rows"><li class="active">OB/GYN offices <small>Available</small></li><li>Medical spas <small>Available</small></li><li>Pain &amp; wellness clinics <small>Available</small></li><li>Your specialty <small>Ask us →</small></li></ul>
+    </div>
+  </section>
+
+  <div class="book on-light" id="ai-book">
+    <div class="aurora"></div>
+    <section>
+      <div class="wrap">
+        <div class="center"><h2 class="section-heading">See your agent in <span class="accent">action</span></h2><p class="lead">Book a short demo and we'll show you the agent working with your office's questions.</p></div>
+        <div class="book-grid">
+          <form class="form" data-form data-segment="AI Agents">
+            <label>Practice type
+              <select name="practice" required><option value="">Choose one</option><option>OB/GYN</option><option>Medical spa</option><option>Pain &amp; wellness clinic</option><option>Other specialty</option></select>
+            </label>
+            <div class="row2"><label>First name<input name="first" required autocomplete="given-name"></label><label>Last name<input name="last" required autocomplete="family-name"></label></div>
+            <div class="row2"><label>Mobile phone<input name="phone" type="tel" required autocomplete="tel"></label><label>Email<input name="email" type="email" required autocomplete="email"></label></div>
+            <label>Practice name<input name="org" required autocomplete="organization"></label>
+            <label class="consent"><input type="checkbox" required> I agree to receive text messages from Freedom Health Ventures about my inquiry. Msg &amp; data rates may apply. Reply STOP to opt out.</label>
+            <button class="btn btn--jade" type="submit">Request a demo</button>
+            <div class="ok" role="status"></div>
+          </form>
+          <div><div class="cal"><div><strong>AI Agents calendar</strong>GoHighLevel demo calendar embeds here.</div></div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- ================= LIFEWAVE ================= -->
+<main class="view" id="view-lifewave" data-title="LifeWave · Freedom Health Ventures">
+  <div class="hero hero--life">
+    <div class="hero-frame">
+      <svg class="art" viewBox="0 0 1400 860" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+        <circle cx="1160" cy="300" r="140" fill="none" stroke="#5ee8a8" stroke-width="1.5" opacity=".35"/>
+        <circle cx="1160" cy="300" r="90" fill="none" stroke="#7dd4bb" stroke-width="1.5" opacity=".35"/>
+        <circle cx="1160" cy="300" r="6" fill="#5ee8a8"/>
+        <path d="M720 860 C 880 720, 1000 520, 1160 440" fill="none" stroke="#5ee8a8" stroke-width="1.5" opacity=".5"/>
+      </svg>
+      <div class="wrap">
+        <div class="hero-copy">
+          <span class="badge"><i class="dot"></i>INDEPENDENT LIFEWAVE DISTRIBUTOR</span>
+          <h1 class="display">Explore LifeWave, at your <span class="accent">own pace</span></h1>
+          <p class="subtitle">Learn about LifeWave products as a customer, or find out what it takes to become an independent distributor.</p>
+          <div class="btn-row"><a class="btn" href="#lifewave" data-go="book">Talk with us</a><a class="btn btn--outline" href="#lifewave" data-go="paths">Choose your path</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet on-light mt-96" id="life-paths">
+    <section>
+      <div class="wrap">
+        <div class="split"><h2 class="section-heading">Two ways to <span class="accent">begin</span></h2><p class="lead">No pressure either way. Start with a conversation and decide what fits you.</p></div>
+        <div class="bento bento--2">
+          <div class="tile tile--forest tile--tall"><div><span class="eyebrow text-muted"><i class="dot"></i>Customer</span></div><div class="stack-sm"><h3>Try the products</h3><p>We'll walk you through the product line and help you choose where to start.</p><a class="btn btn--fit" href="#lifewave" data-go="book" data-pick="Customer">I'm interested in products</a></div></div>
+          <div class="tile tile--stories tile--tall"><div><span class="eyebrow"><i class="dot"></i>Distributor</span></div><div class="stack-sm"><h3>Build your own business</h3><p>Learn how the distributor program works, what's involved and the support you'd have from our team.</p><a class="btn btn--fit" href="#lifewave" data-go="book" data-pick="Distributor">I want to learn more</a></div></div>
+        </div>
+        <p class="form-note mt-24">Freedom Health Ventures is an independent LifeWave distributor. Results and earnings vary; we make no income guarantees. Products are not intended to diagnose, treat, cure or prevent any disease.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="book on-light mt-96" id="life-book">
+    <div class="aurora"></div>
+    <section>
+      <div class="wrap">
+        <div class="center"><h2 class="section-heading">Start with a <span class="accent">conversation</span></h2><p class="lead">Leave your details and we'll text you to find a time.</p></div>
+        <div class="book-grid">
+          <form class="form" data-form data-segment="LifeWave">
+            <label>I'm interested as a
+              <select name="path" id="lifePath" required><option value="">Choose one</option><option>Customer</option><option>Distributor</option><option>Not sure yet</option></select>
+            </label>
+            <div class="row2"><label>First name<input name="first" required autocomplete="given-name"></label><label>Last name<input name="last" required autocomplete="family-name"></label></div>
+            <div class="row2"><label>Mobile phone<input name="phone" type="tel" required autocomplete="tel"></label><label>Email<input name="email" type="email" required autocomplete="email"></label></div>
+            <label>State<input name="state" required></label>
+            <label class="consent"><input type="checkbox" required> I agree to receive text messages from Freedom Health Ventures about my inquiry. Msg &amp; data rates may apply. Reply STOP to opt out.</label>
+            <button class="btn btn--jade" type="submit">Get a text from us</button>
+            <div class="ok" role="status"></div>
+          </form>
+          <div><div class="cal"><div><strong>LifeWave calendar</strong>GoHighLevel booking calendar embeds here.</div></div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- shared FAQ + footer -->
+<div class="sheet-xl on-light">
+  <section>
+    <div class="wrap faq">
+      <div class="split"><h2 class="section-heading">Common <span class="accent">questions</span></h2><p class="lead">Can't find your answer? Fill in a form above and we'll text you.</p></div>
+      <details><summary>How quickly will I hear back?</summary><p>Our system sends a text within about a minute of your request. From there you can ask questions or book a call directly.</p></details>
+      <details><summary>Which states do you work in?</summary><p>We work across the US. For wound care and medical equipment we focus on New Mexico, Texas and California.</p></details>
+      <details><summary>Can I stop the texts?</summary><p>Yes. Reply STOP at any time and you won't receive further messages.</p></details>
+      <details><summary>Is the AI agent customized for my office?</summary><p>Yes. We start from a template built for your specialty, then tailor the answers, tone and booking rules to your office.</p></details>
+    </div>
+  </section>
+</div>
+<div class="foot-band">
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div><a class="brand brand--footer" href="#home">Freedom Health Ventures</a><p class="foot-tagline">Health supply and practice growth, across the US.</p></div>
+        <div><h4>Solutions</h4><ul><li><a href="#wound-care">Wound care</a></li><li><a href="#wound-care">Medical equipment</a></li><li><a href="#ai-agents">AI agents</a></li><li><a href="#lifewave">LifeWave</a></li></ul></div>
+        <div><h4>Company</h4><ul><li><a href="#home" data-go="book">Contact</a></li><li><a href="#home">Privacy policy</a></li><li><a href="#home">SMS terms</a></li></ul></div>
+        <div class="news"><p>Updates from our team, now and then</p><form data-news><input type="email" placeholder="Email address" aria-label="Email address" required><button type="submit">Subscribe</button></form><div class="ok mt-12" role="status"></div></div>
+      </div>
+      <div class="legal"><span>© 2026 Freedom Health Ventures, LLC</span><span>Draft site by Multiply Talents · forms connect to GoHighLevel</span></div>
+    </div>
+  </footer>
+</div>
+
+<script>
+const VIEWS=['home','wound-care','ai-agents','lifewave'];
+function show(){
+  let h=(location.hash||'#home').slice(1); if(!VIEWS.includes(h)) h='home';
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+h));
+  document.querySelectorAll('.nav a.link').forEach(a=>{ if(a.getAttribute('href')==='#'+h) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  document.title=document.getElementById('view-'+h).dataset.title;
+  closeMenu();
+  return h;
+}
+let pendingScroll=null;
+window.addEventListener('hashchange',()=>{ show(); if(pendingScroll){ scrollToTarget(pendingScroll); pendingScroll=null; } else window.scrollTo(0,0); });
+show();
+
+function scrollToTarget(t){
+  const view=document.querySelector('.view.active'); if(!view) return;
+  const map={book:'.book',who:'#wound-who',features:'#ai-features',paths:'#life-paths'};
+  const el=view.querySelector(map[t]||'.book'); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.addEventListener('click',e=>{
+  const a=e.target.closest('[data-go]'); if(!a) return;
+  if(a.dataset.pick){ const s=document.getElementById('lifePath'); if(s) s.value=a.dataset.pick; }
+  const target=a.dataset.go, href=a.getAttribute('href');
+  if(href && href!==location.hash && !(href==='#home' && !location.hash)){ pendingScroll=target; return; }
+  e.preventDefault(); scrollToTarget(target);
+});
+
+function toggleMenu(b){ const n=document.getElementById('nav'); const o=n.classList.toggle('open'); b.setAttribute('aria-expanded',o); b.textContent=o?'Close':'Menu'; }
+function closeMenu(){ const n=document.getElementById('nav'); if(n.classList.contains('open')){ n.classList.remove('open'); const b=n.querySelector('.menu-btn'); b.setAttribute('aria-expanded','false'); b.textContent='Menu'; } }
+
+let lastY=0; const shell=document.getElementById('navShell');
+window.addEventListener('scroll',()=>{ const y=scrollY; shell.classList.toggle('hide', y>lastY && y>200 && !document.getElementById('nav').classList.contains('open')); lastY=y; },{passive:true});
+
+document.querySelectorAll('form[data-form]').forEach(f=>f.addEventListener('submit',e=>{
+  e.preventDefault();
+  const ok=f.querySelector('.ok');
+  ok.textContent='Preview only: this form isn’t connected yet. Once linked to GoHighLevel'+(f.dataset.segment?' ('+f.dataset.segment+' pipeline)':'')+', submitting here will trigger the instant text reply.';
+  ok.classList.add('show');
+}));
+document.querySelectorAll('form[data-news]').forEach(f=>f.addEventListener('submit',e=>{
+  e.preventDefault(); const ok=f.parentElement.querySelector('.ok'); ok.style.display='block'; ok.textContent='Preview only: newsletter signup connects to GoHighLevel.';
+}));
+</script>
+</body>
+</html>
