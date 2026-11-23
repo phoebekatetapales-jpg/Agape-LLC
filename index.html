@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div class="announce" id="announce">Now booking intro calls for wound care supply and AI front-desk agents.&nbsp;<a href="#wound-care" data-go="book">Book a time</a><button aria-label="Dismiss announcement" onclick="this.parentElement.remove()">×</button></div>
+<div class="announce" id="announce">Now booking intro calls for wound care supply and AI front-desk agents.&nbsp;<a href="#wound-care" data-go="book">Book a time</a><button aria-label="Dismiss announcement" data-dismiss>×</button></div>
 
 <div class="nav-shell" id="navShell">
   <nav class="nav" id="nav" aria-label="Main">
@@ -19,7 +19,7 @@
     <a class="link" href="#ai-agents">AI Agents</a>
     <a class="link" href="#lifewave">LifeWave</a>
     <a class="btn" href="#home" data-go="book">Book a call</a>
-    <button class="menu-btn" aria-expanded="false" aria-controls="nav" onclick="toggleMenu(this)">Menu</button>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
   </nav>
 </div>
 
@@ -93,11 +93,11 @@
         <p class="lead text-muted">Tell us who you are and we'll point you to the right team.</p>
       </div>
       <ul class="rows" aria-label="Audiences">
-        <li class="active" onclick="location.hash='wound-care'">Wound care clinics <small>Wound Care →</small></li>
-        <li onclick="location.hash='wound-care'">Podiatry practices <small>Wound Care →</small></li>
-        <li onclick="location.hash='wound-care'">Hospitals, senior living &amp; home health <small>Medical equipment →</small></li>
-        <li onclick="location.hash='ai-agents'">OB/GYN, med spas, pain &amp; wellness <small>AI Agents →</small></li>
-        <li onclick="location.hash='lifewave'">Customers &amp; future distributors <small>LifeWave →</small></li>
+        <li class="active" data-href="wound-care">Wound care clinics <small>Wound Care →</small></li>
+        <li data-href="wound-care">Podiatry practices <small>Wound Care →</small></li>
+        <li data-href="wound-care">Hospitals, senior living &amp; home health <small>Medical equipment →</small></li>
+        <li data-href="ai-agents">OB/GYN, med spas, pain &amp; wellness <small>AI Agents →</small></li>
+        <li data-href="lifewave">Customers &amp; future distributors <small>LifeWave →</small></li>
       </ul>
     </div>
   </section>
@@ -376,48 +376,6 @@
   </footer>
 </div>
 
-<script>
-const VIEWS=['home','wound-care','ai-agents','lifewave'];
-function show(){
-  let h=(location.hash||'#home').slice(1); if(!VIEWS.includes(h)) h='home';
-  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+h));
-  document.querySelectorAll('.nav a.link').forEach(a=>{ if(a.getAttribute('href')==='#'+h) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
-  document.title=document.getElementById('view-'+h).dataset.title;
-  closeMenu();
-  return h;
-}
-let pendingScroll=null;
-window.addEventListener('hashchange',()=>{ show(); if(pendingScroll){ scrollToTarget(pendingScroll); pendingScroll=null; } else window.scrollTo(0,0); });
-show();
-
-function scrollToTarget(t){
-  const view=document.querySelector('.view.active'); if(!view) return;
-  const map={book:'.book',who:'#wound-who',features:'#ai-features',paths:'#life-paths'};
-  const el=view.querySelector(map[t]||'.book'); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-}
-document.addEventListener('click',e=>{
-  const a=e.target.closest('[data-go]'); if(!a) return;
-  if(a.dataset.pick){ const s=document.getElementById('lifePath'); if(s) s.value=a.dataset.pick; }
-  const target=a.dataset.go, href=a.getAttribute('href');
-  if(href && href!==location.hash && !(href==='#home' && !location.hash)){ pendingScroll=target; return; }
-  e.preventDefault(); scrollToTarget(target);
-});
-
-function toggleMenu(b){ const n=document.getElementById('nav'); const o=n.classList.toggle('open'); b.setAttribute('aria-expanded',o); b.textContent=o?'Close':'Menu'; }
-function closeMenu(){ const n=document.getElementById('nav'); if(n.classList.contains('open')){ n.classList.remove('open'); const b=n.querySelector('.menu-btn'); b.setAttribute('aria-expanded','false'); b.textContent='Menu'; } }
-
-let lastY=0; const shell=document.getElementById('navShell');
-window.addEventListener('scroll',()=>{ const y=scrollY; shell.classList.toggle('hide', y>lastY && y>200 && !document.getElementById('nav').classList.contains('open')); lastY=y; },{passive:true});
-
-document.querySelectorAll('form[data-form]').forEach(f=>f.addEventListener('submit',e=>{
-  e.preventDefault();
-  const ok=f.querySelector('.ok');
-  ok.textContent='Preview only: this form isn’t connected yet. Once linked to GoHighLevel'+(f.dataset.segment?' ('+f.dataset.segment+' pipeline)':'')+', submitting here will trigger the instant text reply.';
-  ok.classList.add('show');
-}));
-document.querySelectorAll('form[data-news]').forEach(f=>f.addEventListener('submit',e=>{
-  e.preventDefault(); const ok=f.parentElement.querySelector('.ok'); ok.style.display='block'; ok.textContent='Preview only: newsletter signup connects to GoHighLevel.';
-}));
-</script>
+<script src="script.js"></script>
 </body>
 </html>
