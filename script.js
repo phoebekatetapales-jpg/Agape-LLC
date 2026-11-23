@@ -11,7 +11,8 @@
    06. Mobile menu
    07. Hide nav on scroll
    08. Forms (booking + newsletter)
-   09. Init
+   09. Scroll animations
+   10. Init
    ========================================================================== */
 
 
@@ -202,7 +203,95 @@ document.querySelectorAll('form[data-news]').forEach(form => {
 
 
 /* ==========================================================================
-   09. Init
+   09. Scroll animations
+   Elements fade up as they enter the screen; items in grids appear one
+   after another. Styles live in styles.css (section 18).
+   ========================================================================== */
+
+// Single blocks that fade up on their own
+const REVEAL_SINGLE = [
+  '.section-heading',
+  '.sheet > .wrap > .center',
+  '.form',
+  '.cal',
+];
+
+// Containers whose children fade up one after another
+const REVEAL_GROUPS = [
+  '.hero-copy',
+  '.split',
+  '.center',
+  '.cards',
+  '.bento',
+  '.steps',
+  '.chips',
+  '.rows',
+  '.book-grid',
+  '.what-next',
+  '.faq',
+  '.foot',
+];
+
+const STAGGER_MS = 90;      // delay between items in a group
+const STAGGER_MAX_MS = 540; // cap so long lists don't wait too long
+
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function setupReveal() {
+  if (reducedMotion || !('IntersectionObserver' in window)) return;
+
+  document.documentElement.classList.add('js-reveal');
+
+  // Tag grouped children with a staggered delay
+  REVEAL_GROUPS.forEach(selector => {
+    document.querySelectorAll(selector).forEach(group => {
+      [...group.children].forEach((child, i) => {
+        if (child.closest('.reveal')) return; // already animated by a parent
+        child.classList.add('reveal');
+        child.style.setProperty('--reveal-delay', Math.min(i * STAGGER_MS, STAGGER_MAX_MS) + 'ms');
+      });
+    });
+  });
+
+  // Tag single blocks (skip any already inside an animated parent)
+  document.querySelectorAll(REVEAL_SINGLE.join(',')).forEach(el => {
+    if (!el.closest('.reveal')) el.classList.add('reveal');
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target); // animate once
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+// Hero background parallax: drifts at 30% of scroll speed
+function setupParallax() {
+  if (reducedMotion) return;
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      // Stop moving once the hero is off screen (clamped so fast scrolls still land)
+      const y = Math.min(window.scrollY, window.innerHeight * 1.2);
+      const hero = document.querySelector('.view.active .hero-frame');
+      if (hero) hero.style.setProperty('--parallax', (y * 0.3).toFixed(1) + 'px');
+      ticking = false;
+    });
+  }, { passive: true });
+}
+
+
+/* ==========================================================================
+   10. Init
    ========================================================================== */
 
 show();
+setupReveal();
+setupParallax();

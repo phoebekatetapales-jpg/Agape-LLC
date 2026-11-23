@@ -20,7 +20,8 @@
    15. FAQ
    16. Footer + newsletter
    17. Views (page switching)
-   18. Utilities
+   18. Scroll animations
+   19. Utilities
    ========================================================================== */
 
 
@@ -979,7 +980,39 @@ footer {
 
 
 /* ==========================================================================
-   18. Utilities
+   18. Scroll animations
+   script.js adds .reveal to elements and .is-visible when they scroll into
+   view. Content only starts hidden once JS has run (html.js-reveal), so the
+   page still shows everything if JS fails or motion is reduced.
+   Uses `translate` (not `transform`) so hover lifts on cards still work.
+   ========================================================================== */
+@keyframes reveal-up {
+  from { opacity: 0; translate: 0 28px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+.js-reveal .reveal { opacity: 0; }
+
+.js-reveal .reveal.is-visible {
+  animation: reveal-up .8s cubic-bezier(.2, .7, .2, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* Hero background drifts slower than the page (parallax) */
+.hero-frame .art {
+  translate: 0 var(--parallax, 0px);
+  will-change: translate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; }
+  .js-reveal .reveal.is-visible { animation: none; }
+  .hero-frame .art { translate: none; }
+}
+
+
+/* ==========================================================================
+   19. Utilities
    ========================================================================== */
 .mt-0  { margin-top: 0; }
 .mt-12 { margin-top: 12px; }
